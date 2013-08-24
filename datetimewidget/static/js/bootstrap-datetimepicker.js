@@ -64,7 +64,7 @@
             this.component = this.$element.find('.add-on');
         } 
       } else {
-        if (this.$element.find('.input-group') {
+        if (this.$element.find('.input-group')) {
             this.component = this.$element.find('.input-group-addon');
         }
       }
