@@ -57,9 +57,12 @@
       this.component = false;
       if (this.$element.find('.input-append') || this.$element.find('.input-prepend')) {
           this.component = this.$element.find('.add-on');
-      } else {
+      } 
+      
+      if (this.$element.find('.input-group') {
           this.component = this.$element.find('.input-group-addon');
       }
+      
       this.format = options.format;
       if (!this.format) {
         if (this.isInput) this.format = this.$element.data('format');
