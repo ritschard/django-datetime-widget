@@ -54,15 +54,20 @@
       this.pickDate = options.pickDate;
       this.pickTime = options.pickTime;
       this.isInput = this.$element.is('input');
+      
+      this.isBootstrap3 = options.is_bootstrap3;
+      
       this.component = false;
-      if (this.$element.find('.input-append') || this.$element.find('.input-prepend')) {
-          this.component = this.$element.find('.add-on');
-      } 
       
-      if (this.$element.find('.input-group') {
-          this.component = this.$element.find('.input-group-addon');
+      if (!this.isBootstrap3) {
+        if (this.$element.find('.input-append') || this.$element.find('.input-prepend')) {
+            this.component = this.$element.find('.add-on');
+        } 
+      } else {
+        if (this.$element.find('.input-group') {
+            this.component = this.$element.find('.input-group-addon');
+        }
       }
-      
       this.format = options.format;
       if (!this.format) {
         if (this.isInput) this.format = this.$element.data('format');
