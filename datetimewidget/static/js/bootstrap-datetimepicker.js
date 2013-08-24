@@ -52,7 +52,6 @@
       this.language = options.language in dates ? options.language : 'en'
       this.pickDate = options.pickDate;
       this.pickTime = options.pickTime;
-      this.isInput = this.$element.is('input');
       
       this.isBootstrap3 = options.is_bootstrap3;
       
@@ -69,6 +68,9 @@
             this.component = this.$element.find('.input-group-addon');
         }
       }
+      
+      this.isInput = this.$element.is('input');
+      
       this.format = options.format;
       if (!this.format) {
         if (this.isInput) this.format = this.$element.data('format');
