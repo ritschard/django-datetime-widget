@@ -135,7 +135,7 @@ class DateTimeWidget(MultiWidget):
         if self.is_bootstrap3:
             bootstrap_input_class = "input-group"
             bootstrap_addon_class = "input-group-addon"
-            bootstrap_icon_class = "glyphicon-th"
+            bootstrap_icon_class = ""
         
         return '<div id="%s"  class="%s date form_datetime">'\
                '%s'\
