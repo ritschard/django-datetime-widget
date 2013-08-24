@@ -120,7 +120,7 @@ class DateTimeWidget(MultiWidget):
         SUFFIX = [_("st"), _("nd"), _("rd"), _("th")]
         TODAY = "'%s'"%_("Today")
         js_i18n = I18N % (WEEKDAYS,WEEKDAYS_ABBR, WEEKDAYS_MIN, MONTHS, MONTHS_ABBR, MERDIEM, SUFFIX, TODAY)
-        options = self.option+(translation.get_language(),)+(is_bootstrap3,)
+        options = self.option+(translation.get_language(),)+(self.is_bootstrap3,)
         js_options = datetimepicker_options % options
         id = uuid.uuid4().hex
         
