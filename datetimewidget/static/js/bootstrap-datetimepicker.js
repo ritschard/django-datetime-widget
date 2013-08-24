@@ -64,7 +64,7 @@
         } 
       } else {
         this.$element = $(element).find('.form-control');
-        if (this.$element.find('.input-group')) {
+        if ($(element).find('.input-group')) {
             this.component = this.$element.find('.input-group-addon');
         }
       }
