@@ -72,7 +72,9 @@ class DateTimeWidget(MultiWidget):
         self.option += (options.get('minuteStep','5'),)
         self.option += (options.get('pickerPosition','bottom-right'),)
         self.option += (options.get('showMeridian','false'),)
-
+        # Option for bootstrap 2/3 class switching
+        self.is_bootstrap3 = options.get('is_bootstrap3', False)
+        
         pattern = re.compile(r'\b(' + '|'.join(dateConversion.keys()) + r')\b')
         self.dataTimeFormat = self.option[0]
         self.format =  pattern.sub(lambda x: dateConversion[x.group()], self.option[0])
@@ -120,13 +122,24 @@ class DateTimeWidget(MultiWidget):
         options = self.option+(translation.get_language(),)
         js_options = datetimepicker_options % options
         id = uuid.uuid4().hex
-        return '<div id="%s"  class="input-append date form_datetime">'\
+        
+        #Basic class switching for bootstrap 3 classes, if we set bootstrap3 widget option
+        bootstrap_input_class = "input-append"
+        bootstrap_addon_class = "add-on"
+        bootstrap_icon_class = "icon-th"
+        
+        if self.is_bootstrap3:
+            bootstrap_input_class = "input-group"
+            bootstrap_addon_class = "input-group-addon"
+            bootstrap_icon_class = "glyphicon-th"
+        
+        return '<div id="%s"  class="%s date form_datetime">'\
                '%s'\
-               '<span class="add-on"><i class="icon-th"></i></span>'\
+               '<span class="%s"><i class="%s"></i></span>'\
                '</div>'\
                '<script type="text/javascript">'\
                '%s$("#%s").datetimepicker({%s});'\
-               '</script>  ' % ( id, rendered_widgets[0], js_i18n.replace(', u\'',', \'').replace('[u', '['), id , js_options)
+               '</script>  ' % ( id, bootstrap_input_class, rendered_widgets[0], bootstrap_addon_class, bootstrap_icon_class, js_i18n.replace(', u\'',', \'').replace('[u', '['), id , js_options)
 
 
     class Media:
