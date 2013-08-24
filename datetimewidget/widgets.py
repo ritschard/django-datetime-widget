@@ -52,6 +52,7 @@ dateConversion = {
     'yy' : '%y',
     'yyyy' : '%Y',
 }
+
 class DateTimeWidget(MultiWidget):
 
     def __init__(self, attrs=None, options = {}):
@@ -73,6 +74,7 @@ class DateTimeWidget(MultiWidget):
         self.option += (options.get('minuteStep','5'),)
         self.option += (options.get('pickerPosition','bottom-right'),)
         self.option += (options.get('showMeridian','false'),)
+        
         # Option for bootstrap 2/3 class switching
         self.is_bootstrap3 = options.get('is_bootstrap3', False)
         
@@ -95,6 +97,7 @@ class DateTimeWidget(MultiWidget):
             return ''
         else:
             return str(D)
+
 
     def decompress(self, value):
         if value:
