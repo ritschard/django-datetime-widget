@@ -36,6 +36,7 @@ minuteStep : %s,
 pickerPosition : '%s',
 showMeridian : %s,
 language : '%s',
+is_bootstrap3 : '%s'
 """
 
 dateConversion = {
@@ -73,6 +74,7 @@ class DateTimeWidget(MultiWidget):
         self.option += (options.get('pickerPosition','bottom-right'),)
         self.option += (options.get('showMeridian','false'),)
         # Option for bootstrap 2/3 class switching
+        self.option += (options.get('is_bootstrap3','false'),)
         self.is_bootstrap3 = options.get('is_bootstrap3', False)
         
         pattern = re.compile(r'\b(' + '|'.join(dateConversion.keys()) + r')\b')
