@@ -54,17 +54,16 @@
       this.pickTime = options.pickTime;
       
       this.isBootstrap3 = options.is_bootstrap3;
-      
+      this.$element = $(element);
       this.component = false;
       
       if (!this.isBootstrap3) {
-        this.$element = $(element);
         if (this.$element.find('.input-append') || this.$element.find('.input-prepend')) {
             this.component = this.$element.find('.add-on');
         } 
       } else {
-        this.$element = $(element).find('.form-control');
-        if ($(element).find('.input-group')) {
+        this.$element1 = $(element).find('.form-control');
+        if (this.$element.find('.input-group')) {
             this.component = this.$element.find('.input-group-addon');
         }
       }
