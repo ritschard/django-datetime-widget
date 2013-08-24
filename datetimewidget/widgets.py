@@ -123,7 +123,7 @@ class DateTimeWidget(MultiWidget):
         js_options = datetimepicker_options % options
         id = uuid.uuid4().hex
         
-        #Basic class switching for bootstrap 3 classes, if we set bootstrap3 widget option
+        #Basic class switching for bootstrap 3 classes, if we set is_bootstrap3 widget option
         bootstrap_input_class = "input-append"
         bootstrap_addon_class = "add-on"
         bootstrap_icon_class = "icon-th"
