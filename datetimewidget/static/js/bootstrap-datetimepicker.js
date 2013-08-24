@@ -49,7 +49,6 @@
       if (!(options.pickTime || options.pickDate))
         throw new Error('Must choose at least one picker');
       this.options = options;
-      this.$element = $(element);
       this.language = options.language in dates ? options.language : 'en'
       this.pickDate = options.pickDate;
       this.pickTime = options.pickTime;
@@ -60,10 +59,12 @@
       this.component = false;
       
       if (!this.isBootstrap3) {
+        this.$element = $(element);
         if (this.$element.find('.input-append') || this.$element.find('.input-prepend')) {
             this.component = this.$element.find('.add-on');
         } 
       } else {
+        this.$element = $(element).find('.form-control');
         if (this.$element.find('.input-group')) {
             this.component = this.$element.find('.input-group-addon');
         }
